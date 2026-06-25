@@ -150,7 +150,7 @@ $directoryPath = WorkingDirectory
 
 $csvFile = CSVImport $directoryPath $csvName
 
-$csvHeader = "What is the name of the column we will be reading in? (This columns should contain the DisplayNames)"
+$csvHeader = Read-Host ("What is the name of the column we will be reading in? (This columns should contain the DisplayNames)")
 
 $csvList = CSVReader $csvFile $headerName
 
