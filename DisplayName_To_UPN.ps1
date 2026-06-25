@@ -59,7 +59,7 @@ function DisplayName_To_UPN ($csvList)
 {
 
   $upnList = @("UPN,"
-  $errorList = @("DisplayName,"
+  $List = @("DisplayName,"
 
   foreach ($entry in $csvlist)
   {
@@ -71,11 +71,11 @@ function DisplayName_To_UPN ($csvList)
 
       $fullUPN = Get-ADUser -Filter "DisplayName -eq '$entry'" -Properties DisplayName | Select-Object UserPrincipalName
 
-      #  Error handling in case there are multiple people with the same name. Requires manual intervention.
+      #   handling in case there are multiple people with the same name. Requires manual intervention.
       if ($fullUPN.couunt -ne 1)
       {
 
-        TerminalLog 'Error" "Too many returned values for $entry"
+        TerminalLog "Error" "Too many returned values for $entry"
         $errorList += $entry
 
       }
